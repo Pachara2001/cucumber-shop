@@ -23,4 +23,9 @@ public class ProductCatalog {
     public Product getProduct(String name) {
         return products.get(name);
     }
+
+    public boolean checkStock(String name , int quantity){
+        if(products.get(name).getQuantity()>=quantity) return true;
+        else throw new IllegalArgumentException("Not enough quantity for"+name);
+    }
 }

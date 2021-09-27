@@ -21,8 +21,10 @@ public class Order {
         this.date = LocalDateTime.now();
     }
 
-    public void addItem(Product prod, int quantity) {
-        items.add(new OrderItem(prod, quantity));
+    public void addItem(ProductCatalog catalog,Product prod, int quantity) {
+        if(catalog.checkStock(prod.getName(),quantity)){
+        items.add(new OrderItem(prod, quantity));}
+
     }
 
     public double getTotal() {
